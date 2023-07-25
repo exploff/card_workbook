@@ -6,7 +6,7 @@ const refreshJWTSecret = process.env.REFRESH_TOKEN_SECRET || 'secret_refresh_tok
 
 // Fonction pour générer un access token
 const generateAccessToken = (userId) => {
-  return jwt.sign({ id: userId }, accessJWTSecret, { expiresIn: '15m' });
+  return jwt.sign({ id: userId }, accessJWTSecret, { expiresIn: '30m' });
 };
 
 // Fonction pour vérifier un access token

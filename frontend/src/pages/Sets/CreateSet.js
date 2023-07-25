@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./CreateSet.scss";
 import axios from "../../api/axios";
 function CreateSet() {
@@ -60,7 +60,7 @@ function CreateSet() {
             </div>
             <button>Enregistrer</button>
         </form>
-    );
+    ); 
 }
 
 export default CreateSet;

@@ -23,6 +23,11 @@ const Navbar = () => {
                         <Link to="/edit-sets">Gestion sets</Link>
                     </li>
                 )}
+                {(isAuthenticated) && (
+                    <li>
+                        <Link to="/edit-cards">Gestion cartes</Link>
+                    </li>
+                )}
                 <li>
                     {(!isAuthenticated) ? (
                         <Link to="/login">Login</Link>

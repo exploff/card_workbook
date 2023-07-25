@@ -39,7 +39,6 @@ exports.createSet = (req, res) => {
                 }
             }
         )
-    
     }
 }
 

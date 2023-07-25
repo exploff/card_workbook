@@ -1,5 +1,6 @@
 const userController = require('./controllers/userController');
 const setsController = require('./controllers/setsController');
+const cardsController = require('./controllers/cardsController');
 const verifyJWT = require('./middlewares/jwtMiddleware'); // Importez directement le middleware
 const express = require('express');
 const cors = require('cors');
@@ -26,6 +27,10 @@ app.get('/sets', setsController.getSets);
 app.post('/create-set', verifyJWT, setsController.createSet);
 
 app.delete('/delete-set/:setId', verifyJWT, setsController.deleteSet);
+
+app.get('/cards', verifyJWT, cardsController.getCards);
+
+app.post('/create-card', verifyJWT, cardsController.createCard);
 
 // Démarrage du serveur
 app.listen(port, () => {

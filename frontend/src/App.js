@@ -6,6 +6,7 @@ import Auth from './contexts/Auth';
 import Navbar from './components/Navbar';
 import axios from './api/axios';
 import EditSets from './pages/Sets/EditSets';
+import EditCards from './pages/Cards/EditCards';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -47,6 +48,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<div>HOME</div>} />
               <Route exact path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+              { isAuthenticated && <Route exact path="/edit-cards" element={<EditCards />} />}
               {isAuthenticated && <Route exact path="/edit-sets" element={<EditSets />} />}
               <Route path="*" element={<div>404</div>} />
             </Routes>
