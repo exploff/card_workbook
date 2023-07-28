@@ -10,6 +10,8 @@ const port = 4000; // Choisissez le port de votre choix
 // Middleware pour autoriser les requêtes cross-origin (CORS)
 app.use(cors());
 
+//Multer si on veut gérer les images c'est free
+
 // Middleware pour parser le contenu des requêtes en JSON
 app.use(express.json());
 
@@ -31,6 +33,9 @@ app.delete('/delete-set/:setId', verifyJWT, setsController.deleteSet);
 app.get('/cards', verifyJWT, cardsController.getCards);
 
 app.post('/create-card', verifyJWT, cardsController.createCard);
+
+app.delete('/delete-card/:cardId', verifyJWT, cardsController.deleteCard);
+
 
 // Démarrage du serveur
 app.listen(port, () => {

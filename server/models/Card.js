@@ -17,8 +17,32 @@ function dataToCard(data) {
     }
 }
 
-function cardToData() {
+function cardToData(cards) {
 
+    let data = [];
+
+    cards.forEach((card) => {
+        data.push({
+            cardId: card.id,
+            cardName: card.name,
+            cardDesc: card.description,
+            cardType: card.type,
+            cardRarity: card.rarity,
+            cardColor: card.color,
+            cardTrigger: card.card_trigger ? card.card_trigger : "",
+            cardPower: card.power ? card.power : 0,
+            cardLife: card.life ? card.life : 0,
+            cardCost: card.cost ? card.cost : 0,
+            cardCounter: card.counter ? card.counter : 0,
+            cardAttribute: card.attribute ? card.attribute : "",
+            cardIllustrationType: card.illustration_type ? card.illustration_type : "",
+            cardSet: card.card_set_id,
+            cardCreatedAt: card.created_date,
+            cardUpdatedAt: card.updated_date,
+        })
+    });
+
+    return data;
 }
 
 module.exports = {

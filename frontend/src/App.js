@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Login from './pages/Login/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';

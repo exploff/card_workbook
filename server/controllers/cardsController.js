@@ -1,8 +1,16 @@
-const { dataToCard } = require('../models/Card');
+const { dataToCard, cardToData } = require('../models/Card');
 const db = require('../mysql/database');
 
 exports.getCards = (req, res) => {
-    res.status(500).send({message: "Not implemented"});        
+    const sql = "SELECT * FROM card";
+    db.query(sql, (err, result) => {
+        if (err) {
+            res.status(500).send({message: "Error while getting cards"});
+            console.error(err);
+        } else {
+            res.status(200).send(cardToData(result));
+        }
+    })
 }
 
 exports.createCard = (req, res) => {
@@ -23,6 +31,25 @@ exports.createCard = (req, res) => {
                 console.error(err);
             } else {
                 res.status(200).send({message: "Card created"});
+            }
+        }
+    )
+}
+
+
+exports.deleteCard = (req, res) => {
+    const sql = "DELETE FROM card WHERE id = ?";
+    const cardId = req.params.cardId;
+
+    db.query(
+        sql,
+        cardId,
+        (err, result) => {
+            if (err) {
+                res.status(500).send({message: "Error while deleting card"});
+                console.error(err);
+            } else {
+                res.status(200).send({message: "Card deleted"});
             }
         }
     )

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./EditSets.scss";
 import CreateSet from "./CreateSet";
 import axios from "../../api/axios";
-import { GetSetIllustrations, getSetIllustrations } from "../../components/Illustrations";
+import { GetSetIllustration } from "../../components/Illustrations";
 
 function EditSets() {
 
@@ -68,7 +68,7 @@ function EditSets() {
                                         <td>{set.setName}</td>
                                         <td>{set.setDesc}</td>
                                         <td>
-                                            <GetSetIllustrations setId={set.setId} />
+                                            <GetSetIllustration setId={set.setId} />
                                         </td>
                                         <td>
                                             <button>Modifier</button>

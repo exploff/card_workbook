@@ -103,17 +103,17 @@ function CreateCard() {
                     </div>
                     <div>
                         <label htmlFor="cardPower">Puissance</label>
-                        <input type="text" id="cardPower" name="cardPower" placeholder='Puissance de la carte' 
+                        <input type="number" id="cardPower" name="cardPower" placeholder='Puissance de la carte' 
                             onChange={handleFieldChange}/>
                     </div>
                     <div>
                         <label htmlFor="cardLife">Vie</label>
-                        <input type="text" id="cardLife" name="cardLife" placeholder='Vie' 
+                        <input type="number" id="cardLife" name="cardLife" placeholder='Vie' 
                             onChange={handleFieldChange}/>
                     </div>
                     <div>
                         <label htmlFor="cardCost">Coût</label>
-                        <input type="text" id="cardCost" name="cardCost" placeholder='Coût de la carte' 
+                        <input type="number" id="cardCost" name="cardCost" placeholder='Coût de la carte' 
                             onChange={handleFieldChange}/>
                     </div>
                     <div>
