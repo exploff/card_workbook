@@ -1,0 +1,6 @@
+.classeur-view-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 éléments par ligne */
+    grid-template-rows: repeat(2, 1fr);    /* 2 lignes */
+    gap: 10px;
+}

@@ -28,6 +28,11 @@ const Navbar = () => {
                         <Link to="/edit-cards">Gestion cartes</Link>
                     </li>
                 )}
+                {(isAuthenticated) && (
+                    <li>
+                        <Link to="/classeur">Classeur</Link>
+                    </li>
+                )}
                 <li>
                     {(!isAuthenticated) ? (
                         <Link to="/login">Login</Link>

@@ -13,6 +13,19 @@ exports.getCards = (req, res) => {
     })
 }
 
+exports.getCardsField = (req, res) => {
+    const field = req.params.field;
+    const sql = "SELECT ?? FROM card";
+    db.query(sql, field, (err, result) => {
+        if (err) {
+            res.status(500).send({message: "Error while getting cards"});
+            console.error(err);
+        } else {
+            res.status(200).send(result);
+        }
+    })
+}
+
 exports.createCard = (req, res) => {
 
     const card = dataToCard(req.body);

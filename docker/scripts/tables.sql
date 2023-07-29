@@ -47,3 +47,19 @@ ALTER TABLE `card`
   FOREIGN KEY (`card_set_id`)
   REFERENCES `card_set` (`id`)
   ON DELETE CASCADE;
+
+
+CREATE TABLE IF NOT EXISTS `classeur` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(250) NOT NULL,
+  `user_id` INT NOT NULL,
+  `card_map` TEXT NOT NULL,
+  `created_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  INDEX `fk_user_id_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE CASCADE
+);

@@ -1,6 +1,7 @@
 const userController = require('./controllers/userController');
 const setsController = require('./controllers/setsController');
 const cardsController = require('./controllers/cardsController');
+const classeursController = require('./controllers/classeursController');
 const verifyJWT = require('./middlewares/jwtMiddleware'); // Importez directement le middleware
 const express = require('express');
 const cors = require('cors');
@@ -32,9 +33,21 @@ app.delete('/delete-set/:setId', verifyJWT, setsController.deleteSet);
 
 app.get('/cards', verifyJWT, cardsController.getCards);
 
+app.get('/cards/:field', verifyJWT, cardsController.getCardsField);
+
 app.post('/create-card', verifyJWT, cardsController.createCard);
 
 app.delete('/delete-card/:cardId', verifyJWT, cardsController.deleteCard);
+
+app.get('/classeurs', verifyJWT, classeursController.getClasseurs);
+
+app.post('/create-classeur', verifyJWT, classeursController.createClasseur);
+
+app.post('/add-card-to-classeur', verifyJWT, classeursController.addCardToClasseur);
+
+app.post('/remove-card-to-classeur', verifyJWT, classeursController.removeCardToClasseur);
+
+app.post('/classeur-cards', verifyJWT, classeursController.getClasseurCards);
 
 
 // Démarrage du serveur
